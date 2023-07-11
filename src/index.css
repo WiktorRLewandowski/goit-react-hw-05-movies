@@ -1,4 +1,15 @@
-@import-normalize; /* bring in normalize.css styles */
+/* @import-normalize; bring in normalize.css styles */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* * {
+  margin: 0;
+  padding: 0;
+} */
 
 body {
   margin: 0;
@@ -7,6 +18,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 
 code {
