@@ -30,7 +30,7 @@ export default function App() {
     console.log(value)
     await fetchMovies(refs.search, value)
     .then(movies=> movies.results.length === 0
-      ? Notify.failure("Are you sure? That's what you meant to type? NO SUCH MOVIES!")
+      ? Notify.failure("Check 'em typos. No such movies!")
       : setSearchMovies(movies.results))
     .catch(error=> setError(error))
     .then(()=> setIsLoading(false))
