@@ -21,7 +21,7 @@ export default function App() {
 
   // console.log(movies)
   // console.log(error)
-  // console.log(isLoading)
+  console.log(isLoading)
 
   const handleSubmit = async e => {
     e.preventDefault()
