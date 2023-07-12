@@ -1,4 +1,5 @@
 import axios from "axios"
+// import { refs } from "./refs";
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
@@ -7,26 +8,28 @@ const KEY = '79ea8908d5d0aaabd49d601dd35d503a';
 const LANG = 'en-US';
 const SEARCH_URL = 'search/movie';
 const TRENDING_URL = `trending/movie/week`;
-const GET_MOVIE = '/movies/get-movie-'
 
-export const fetchMovies = async (fetchCategory, query, page) => {
-  switch (fetchCategory) {      
-    case 'search':
-      fetchCategory = SEARCH_URL
-      break;
-    case 'details':
-      fetchCategory = `${GET_MOVIE}details`
-      break;
-    case 'credits':
-      fetchCategory = `${GET_MOVIE}credits`
-      break;
-    case 'reviews':
-      fetchCategory = `${GET_MOVIE}reviews`
-      break;
-    default:
-      fetchCategory = TRENDING_URL;
-  }
-  const response = await axios.get(`${fetchCategory}`, {
+// params: {
+//   query: query,
+//   api_key: KEY,
+//   language: LANG,
+//   include_adult: false,
+//   page: page,
+// },
+
+export const fetchTrending = async () => {
+  const response = await axios.get(`${TRENDING_URL}`, {
+    params: {
+      api_key: KEY,
+      language: LANG,
+      include_adult: false,
+    },
+  });
+  return response.data.results
+}
+
+export const fetchSearch = async (query, page) => {
+  const response = await axios.get(`${SEARCH_URL}`, {
     params: {
       query: query,
       api_key: KEY,
@@ -34,7 +37,33 @@ export const fetchMovies = async (fetchCategory, query, page) => {
       include_adult: false,
       page: page,
     },
-  });
+  })
   return response.data
 }
 
+// 667538 transformers id
+
+export const fetchById = async (id, fetchCategory) => {
+  switch (fetchCategory) {      
+    case 'credits':
+      fetchCategory = `/credits`
+      break;
+    case 'reviews':
+      fetchCategory = `/reviews`
+      break;
+    default:
+      fetchCategory = '';
+  }
+  const response = await axios.get(`/movie/${id}${fetchCategory}`, {
+    params: {
+      api_key: KEY,
+      language: LANG,
+      include_adult: false,
+    },
+  })
+  return response.data
+}
+
+fetchById(667538)
+.then(data => console.log(data))
+.catch(error => console.log(error))

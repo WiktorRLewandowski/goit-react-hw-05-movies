@@ -1,5 +1,4 @@
 
-
 export const Movies = ({ onSubmit, movies }) => {
     return (
         <>
@@ -14,7 +13,7 @@ export const Movies = ({ onSubmit, movies }) => {
                 <button type="submit">Search</button>
             </form>
             <ul>
-                {movies.map(movie => {
+             {movies.map(movie => {
                     return(
                         <li key={crypto.randomUUID()}>
                             {movie.title}
