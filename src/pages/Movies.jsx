@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 export const Movies = ({ onSubmit, movies }) => {
     return (
@@ -15,12 +16,13 @@ export const Movies = ({ onSubmit, movies }) => {
             <ul>
              {movies.map(movie => {
                     return(
-                        <li key={crypto.randomUUID()}>
-                            {movie.title}
+                        <li key={movie.id}>
+                            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
                         </li>
                     )
                 })}
             </ul>
+            {/* <Outlet/> */}
         </>
     )
 }

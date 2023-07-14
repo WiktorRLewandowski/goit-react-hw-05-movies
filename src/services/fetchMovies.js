@@ -1,5 +1,5 @@
 import axios from "axios"
-// import { refs } from "./refs";
+import { refs } from "./refs";
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
@@ -67,3 +67,12 @@ export const fetchById = async (id, fetchCategory) => {
 fetchById(667538)
 .then(data => console.log(data))
 .catch(error => console.log(error))
+
+fetchById(667538, refs.reviews)
+.then(data => console.log(data))
+.catch(error => console.log(error))
+
+fetchById(667538, refs.credits)
+.then(data => console.log(data))
+.catch(error => console.log(error))
+

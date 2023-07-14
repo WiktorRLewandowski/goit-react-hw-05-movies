@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export const Home = ({movies}) => {
     return (
         <>
@@ -6,7 +8,7 @@ export const Home = ({movies}) => {
         {movies.map(movie => {
             return(
             <li key={crypto.randomUUID()}>
-                {movie.title}
+                <Link to={`/movies/${movie.id}}`}>{movie.title}</Link>
             </li>)
         })}
         </ul>
