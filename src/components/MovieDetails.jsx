@@ -13,7 +13,7 @@ export const MovieDetails = ({ movie }) => {
         poster_path,
         vote_average,
         overview,
-        genres,    
+        // genres,    
     } = movie
 
     // const Genres = ({genres}) => {
