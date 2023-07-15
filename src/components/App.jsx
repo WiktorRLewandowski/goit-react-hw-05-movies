@@ -43,7 +43,6 @@ export default function App() {
 
   return (
     <>
-    {/* something lika header component? With children as links? */}
     <nav>
       <ul>
         <li><NavLink to="/">Home</NavLink></li>
@@ -51,7 +50,7 @@ export default function App() {
       </ul>
     </nav>
     <Routes>
-      <Route index element={<Home movies={movies}/>}/>
+      <Route path="/" index element={<Home movies={movies}/>}/>
       <Route path='/movies' element={<Movies movies={searchMovies} onSubmit={handleSubmit}/>}/>
         <Route path='/movies/:id/*' element={<MoviePage/>}>
           <Route path='reviews' element={<Reviews />}/>

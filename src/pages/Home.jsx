@@ -7,7 +7,7 @@ export const Home = ({movies}) => {
         <ul>
         {movies.map(movie => {
             return(
-            <li key={crypto.randomUUID()}>
+            <li key={movie.id}>
                 <Link to={`/movies/${movie.id}}`}>{movie.title}</Link>
             </li>)
         })}
