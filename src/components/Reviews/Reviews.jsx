@@ -1,4 +1,4 @@
-export const Reviews = ({ reviews }) => {
+export default function Reviews ({ reviews }) {
     const results = reviews.results
     return (
         <ul>

@@ -1,11 +1,13 @@
 import { Routes, Route, useSearchParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { Notify } from "notiflix";
-import { Home } from "pages";
-import { Movies } from "pages";
 import { fetchSearch, fetchTrending } from "services";
-import { MoviePage } from "pages";
-import { SharedLayout } from "./SharedLayout";
+
+import  SharedLayout  from "./SharedLayout/SharedLayout";
+
+const Home = lazy(()=> import('pages/Home'))
+const Movies = lazy(()=> import('pages/Movies'))
+const MoviePage = lazy(()=> import('pages/MoviePage'))
 
 export default function App() {
   const [movies, setMovies] = useState([])
@@ -45,6 +47,7 @@ export default function App() {
 
   return (
     <>
+    <Suspense fallback={<div>Loading...</div>}>
     <SharedLayout/>
     <Routes>
       <Route index element={<Home movies={movies}/>}/>
@@ -52,6 +55,7 @@ export default function App() {
         <Route path='movies/:id/*' element={<MoviePage />} />
       <Route/>                     
     </Routes>
+    </Suspense>
     </>
   );
 };

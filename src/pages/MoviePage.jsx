@@ -1,15 +1,15 @@
-import { Reviews } from "components"
-import { Credits } from "components"
-import { useEffect, useState } from "react"
+import { useEffect, useState} from "react"
 import { Link, Routes, useParams } from "react-router-dom"
 import { useLocation } from "react-router-dom"
 import { fetchById } from "services"
 import { refs } from "services"
 import { Route } from "react-router-dom"
-import { MovieDetails } from "components"
 
+import  MovieDetails  from "components/MovieDetails/MovieDetails"
+import  Credits from "components/Credits/Credits"
+import  Reviews from "components/Reviews/Reviews"
 
-export const MoviePage = () => {
+export default function MoviePage() {
     const { id } = useParams()
     const [movie, setMovie] = useState(() => {
         return (
@@ -61,11 +61,13 @@ export const MoviePage = () => {
     return (
         <>
         <Link className="btnBack" to={backLinkHref}>{`<<`} Back to movies</Link>
+        
         <MovieDetails movie={movie}/>
         <Routes>
             <Route path='reviews' element={!reviews.total_results ? "No reviews yet" : <Reviews reviews={reviews} />}/>
             <Route path='cast' element={!credits.cast ? 'No cast listed' : <Credits credits={credits}/> }/>
         </Routes>
+        
         </>
     )
 }

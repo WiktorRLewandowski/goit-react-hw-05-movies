@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom"
 
-export const Home = ({movies}) => {
+export default function Home({movies}) {
     const location = useLocation()
     return (
         <div className="wrapper">

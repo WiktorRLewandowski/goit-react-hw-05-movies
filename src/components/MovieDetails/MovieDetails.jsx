@@ -5,7 +5,7 @@ import css from './MovieDetails.module.css'
 
 const IMG_URL = 'https://image.tmdb.org/t/p/w300'
 
-export const MovieDetails = () => {
+export default function MovieDetails() {
     const { id } = useParams()
     const location = useLocation()
     const [movie, setMovie] = useState(() => {

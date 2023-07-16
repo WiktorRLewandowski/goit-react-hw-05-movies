@@ -2,7 +2,7 @@ import css from './Credits.module.css'
 
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w185/'
 
-export const Credits = ({credits}) => {
+export default function Credits({credits}) {
     const cast = credits.cast
     return (
         <ul className={css.creditsGrid}>

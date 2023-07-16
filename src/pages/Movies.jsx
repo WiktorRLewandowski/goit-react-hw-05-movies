@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export const Movies = ({ onSubmit, movies }) => {
+export default function Movies ({ onSubmit, movies }) {
     return (
         <>
         {/* <h1></h1> */}

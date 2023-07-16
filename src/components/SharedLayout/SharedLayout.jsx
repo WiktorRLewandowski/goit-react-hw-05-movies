@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import css from './SharedLayout.module.css'
 
-export const SharedLayout = () => {
+export default function SharedLayout() {
     return (
     <nav>
       <ul className={css.container}>
