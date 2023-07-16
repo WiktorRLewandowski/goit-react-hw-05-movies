@@ -1,0 +1,26 @@
+.container {
+    list-style-type: none;
+
+    margin: 0;
+    margin-left: 1rem;
+    display: flex;
+    gap: 2rem;
+
+    padding: 1rem;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+/* sorry for repetition, this from my own tailwind */
+.btn {
+    color: inherit;
+    &:hover {
+        text-decoration:underline;
+    }
+}
+
+a.btn {
+    text-decoration: none;
+}
+
+

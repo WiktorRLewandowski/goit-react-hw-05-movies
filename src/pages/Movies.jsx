@@ -3,21 +3,21 @@ import { Link } from "react-router-dom"
 export const Movies = ({ onSubmit, movies }) => {
     return (
         <>
-        <h1>This a mobie</h1>
-        <form onSubmit={onSubmit}>
+        {/* <h1></h1> */}
+        <form className="form" onSubmit={onSubmit}>
                 <input 
                     // className={css.input} 
                     type="text" 
                     name="searchQuery"
                     autoComplete="off" 
-                    placeholder="Search movies..." />
-                <button type="submit">Search</button>
+                    placeholder="Search for movies..." />
+                <button className="searchBtn" type="submit">Search</button>
             </form>
             <ul>
-             {movies.map(movie => {
+             {movies.map(({id, title}) => {
                     return(
-                        <li key={movie.id}>
-                            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+                        <li key={id}>
+                            <Link to={`/movies/${id}`}>{title}</Link>
                         </li>
                     )
                 })}

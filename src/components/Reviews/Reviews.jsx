@@ -2,11 +2,11 @@ export const Reviews = ({ reviews }) => {
     const results = reviews.results
     return (
         <ul>
-            {results.map(review => {
+            {results.map(({id, author, content}) => {
                 return (
-                    <li key={review.id}>
-                        <strong>Author: {review.author}</strong>
-                        <p>{review.content}</p>
+                    <li key={id}>
+                        <strong>Author: {author}</strong>
+                        <p>{content}</p>
                     </li>
                 )
             })}

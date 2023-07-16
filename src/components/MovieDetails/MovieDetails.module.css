@@ -1,0 +1,21 @@
+.wrapper {
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.poster {
+    display: inline-block;
+}
+
+.details {
+    display: inline-block;
+}
+
+.additional {
+    padding: 1rem;
+}
+
+li::marker {
+    color: red;
+}
