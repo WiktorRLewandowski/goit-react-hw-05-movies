@@ -1,14 +1,19 @@
+import css from './Credits.module.css'
+
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w185/'
 
 export const Credits = ({credits}) => {
     const cast = credits.cast
-    // const getPhoto = credits.profile_path !== null ? `${IMAGE_URL}${credits.profile_path}` : 'https://placehold.jp/185x278.png' 
     return (
-        <ul>
+        <ul className={css.creditsGrid}>
             {cast.map(credits => {
                 return(
                     <li key={credits.id}>
-                        <img src={`${IMAGE_URL}${credits.profile_path}`} alt={`${credits.name}`} />
+                        <img className={css.photo} 
+                            src={credits.profile_path !== null 
+                                ? `${IMAGE_URL}${credits.profile_path}` 
+                                : 'https://placehold.jp/185x278.png'} 
+                            alt={`${credits.name}`} />
                         <p>Name: {credits.name}</p>
                         <p>Character: {credits.character}</p>
                     </li>
