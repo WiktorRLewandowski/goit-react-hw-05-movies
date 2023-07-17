@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 export default function Movies ({ onSubmit, movies }) {
+    const location = useLocation()
     return (
         <>
         <form className="form" onSubmit={onSubmit}>
@@ -17,7 +19,7 @@ export default function Movies ({ onSubmit, movies }) {
              {movies.map(({id, title}) => {
                     return(
                         <li key={id}>
-                            <Link to={`/movies/${id}`}>{title}</Link>
+                            <Link to={`/movies/${id}`} state={{ from: location }}>{title}</Link>
                         </li>
                     )
                 })}
