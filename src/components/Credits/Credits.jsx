@@ -6,16 +6,16 @@ export default function Credits({credits}) {
     const cast = credits.cast
     return (
         <ul className={css.creditsGrid}>
-            {cast.map(credits => {
+            {cast.map(({id, profile_path, name, character}) => {
                 return(
-                    <li key={credits.id}>
+                    <li key={id}>
                         <img className={css.photo} 
-                            src={credits.profile_path !== null 
-                                ? `${IMAGE_URL}${credits.profile_path}` 
+                            src={profile_path !== null 
+                                ? `${IMAGE_URL}${profile_path}` 
                                 : 'https://placehold.jp/185x278.png'} 
-                            alt={`${credits.name}`} />
-                        <p>Name: {credits.name}</p>
-                        <p>Character: {credits.character}</p>
+                            alt={`${name}`} />
+                        <p>Name: {name}</p>
+                        <p>Character: {character}</p>
                     </li>
                 )
             })}

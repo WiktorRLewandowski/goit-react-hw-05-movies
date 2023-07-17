@@ -6,10 +6,10 @@ export default function Home({movies}) {
         <div className="wrapper">
         <h1 className="header">Trending this week:</h1>
         <ul>
-        {movies.map(movie => {
+        {movies.map(({id, title}) => {
             return(
-            <li key={movie.id}>
-                <Link to={`/movies/${movie.id}`} state={{ from: location }}>{movie.title}</Link>
+            <li key={id}>
+                <Link to={`/movies/${id}`} state={{ from: location }}>{title}</Link>
             </li>)
         })}
         </ul>

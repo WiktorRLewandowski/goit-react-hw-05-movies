@@ -6,6 +6,7 @@
 
 .poster {
     display: inline-block;
+    max-width: 300px;
 }
 
 .details {

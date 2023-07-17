@@ -15,6 +15,7 @@ export default function MovieDetails() {
         .catch(error => console.log(error))
         )
     }) 
+
     const {
         title, 
         release_date, 
@@ -27,12 +28,18 @@ export default function MovieDetails() {
     const calculateScore = (score) => {
         const userScore = Math.round(score*10)
         return `${userScore}%`
-    }  
+    }
+    
+    const poster = `${IMG_URL}${poster_path}`
 
     return(
         <>
         <div className={css.wrapper}>
-                <img src={`${IMG_URL}${poster_path}`} alt={`${title} official poster`} />
+                <img className={css.poster}
+                    src={poster_path !== null 
+                            ? poster 
+                            : 'https://wiktorrlewandowski.github.io/projekt-grupa-3/poster-none.d4c9acdc.png'} 
+                    alt={`${title} official poster`} />
             <div className={css.details}>
                 <h2>{title} {release_date ? `(${release_date.slice(0,4)})` : ''}</h2>
                 <p>User score: {calculateScore(vote_average)}</p>
