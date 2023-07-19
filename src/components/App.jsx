@@ -5,6 +5,7 @@ import { fetchSearch, fetchTrending } from "services";
 import { Loader } from "./Loader";
 
 import  SharedLayout  from "./SharedLayout/SharedLayout";
+import NotFound from "pages/NotFound";
 
 const Home = lazy(()=> import('pages/Home'))
 const Movies = lazy(()=> import('pages/Movies'))
@@ -59,6 +60,7 @@ export default function App() {
         <Route index element={<Home movies={movies}/>}/>
         <Route path='/movies' element={<Movies movies={searchMovies} onSubmit={handleSubmit}/>}/>
         <Route path='movies/:id/*' element={<MoviePage />} />
+        <Route path='*' element={<NotFound/>}/>
       </Route>
     </Routes>
     </Suspense>
